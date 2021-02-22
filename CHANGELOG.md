@@ -1,5 +1,7 @@
 # Changelog
 
+## [Unreleased]
+
 ## [0.4.0] - 2021-02-22
 - fix
 
