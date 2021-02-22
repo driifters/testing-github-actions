@@ -1,16 +1,16 @@
-name: Pre-Release
+name: Create Pre-Release
 
 on:
   push:
-    branches:
-      - development
     tags:
-      - "v*"
+      - "v*.*.*-*"
+  pull_request:
 
 jobs:
   lint_test_build_pre_release:
-    name: Lint, test, build and pre-release
+    name: Lint, test, build and create pre-release
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || "startsWith(GITHUB_REF, 'refs/tags/v')"
     steps:
       - name: Setup Git User
         run: |
@@ -31,3 +31,18 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Create Pre-Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: true
