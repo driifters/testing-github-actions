@@ -1,0 +1,33 @@
+name: Pre-Release
+
+on:
+  push:
+    branches:
+      - development
+    tags:
+      - "v*"
+
+jobs:
+  lint_test_build_pre_release:
+    name: Lint, test, build and pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Git User
+        run: |
+          git config --global user.email "github-actions-ci@tokyodrift1993.org"
+          git config --global user.name "Github Actions CI"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
