@@ -1,9 +1,6 @@
 {
-  "hooks": {
-    "after:bump": "auto-changelog --latest-version v${version}"
-  },
   "git": {
-    "changelog": "auto-changelog --stdout --template ./changelog-template-for-release.hbs",
+    "changelog": "awk \"/## \\[Unreleased\\]/ {flag=1;next} /## \\[/ {flag=0} flag {print}\" CHANGELOG.md",
     "tagName": "v${version}",
     "tagArgs": "-s"
   },
