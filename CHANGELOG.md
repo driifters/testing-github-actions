@@ -1,5 +1,7 @@
 # Changelog
 
+## [Unreleased]
+
 ## [0.3.0] - 2021-02-22
 - release-it should not publish github release
 
