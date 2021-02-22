@@ -1,6 +1,7 @@
 # Changelog
 
 ## [0.4.0] - 2021-02-22
+- fix
 
 ## [0.3.0] - 2021-02-22
 - release-it should not publish github release
