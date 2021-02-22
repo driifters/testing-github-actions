@@ -2,6 +2,7 @@ name: Create Pre-Release
 
 on:
   pull_request:
+    types: [closed]
 
 jobs:
   lint_test_build_pre_release:
