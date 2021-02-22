@@ -1,0 +1,18 @@
+{
+  "release-it": {
+    "hooks": {
+      "after:bump": "auto-changelog --latest-version v${version}"
+    },
+    "git": {
+      "changelog": "auto-changelog --stdout --template ./changelog-template-for-release.hbs",
+      "tagName": "v${version}",
+      "tagArgs": "-s"
+    },
+    "github": {
+      "release": false
+    },
+    "npm": {
+      "publish": false
+    }
+  }
+}
