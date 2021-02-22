@@ -37,7 +37,7 @@ jobs:
         id: read_version
         run: |
           echo ::set-output name=VERSION::$(yarn versions --json --cwd ./.ci | jq -r '.data."@tokyodrift1993/testing-github-actions"')
-          echo ::set-output name=TAG::v${{steps.read_version.outputs.VERSION }}
+          echo "::set-output name=TAG::v${{steps.read_version.outputs.VERSION }}"
 
       - name: Bump version
         run: yarn version --new-version ${{ steps.read_version.outputs.VERSION }} --no-git-tag-version
