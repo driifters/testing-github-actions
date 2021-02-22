@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- fix changelog and versions
+
 ## [0.0.1]
 - Init
 - Add new feature
