@@ -33,4 +33,4 @@ jobs:
           echo ::set-output name=RELEASE_NOTES::$CHANGELOG
 
       - name: read release notes
-        run: echo ${{ steps.release_notes.outputs.RELEASE_NOTES }}
+        run: echo "${{ steps.release_notes.outputs.RELEASE_NOTES }}"
