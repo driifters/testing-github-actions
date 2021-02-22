@@ -1,6 +1,6 @@
 {
   "name": "@tokyodrift1993/testing-github-actions",
-  "version": "0.0.4-4",
+  "version": "0.1.0",
   "devDependencies": {
     "auto-changelog": "^2.2.1",
     "release-it": "^14.4.1"
