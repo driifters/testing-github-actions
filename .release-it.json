@@ -17,5 +17,7 @@
     "tagArgs": "-s"
   },
   "github": false,
-  "npm": false
+  "npm": {
+    "publish": false
+  }
 }
