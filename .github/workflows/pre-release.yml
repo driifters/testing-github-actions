@@ -50,7 +50,7 @@ jobs:
         id: create_github_release_notes
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_PAT }}
         with:
           tag_name: ${{ steps.read_version.outputs.TAG }}
           release_name: Release ${{ steps.read_version.outputs.TAG }}
