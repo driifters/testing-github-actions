@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "auto-changelog": "^2.2.1",
     "release-it": "^14.4.1"
   }
 }
