@@ -8,9 +8,7 @@
       "tagName": "v${version}",
       "tagArgs": "-s"
     },
-    "github": {
-      "release": false
-    },
+    "github": false,
     "npm": false
   }
 }
