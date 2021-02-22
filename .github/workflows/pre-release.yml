@@ -60,7 +60,7 @@ jobs:
 
       - name: Commit release TAG
         run: |
-          git commit -m "${{ steps.read_version.outputs.TAG }}"
+          git commit -am "${{ steps.read_version.outputs.TAG }}"
           git push
 
 #      - name: Publish npm
