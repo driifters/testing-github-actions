@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.4.0] - 2021-02-22
 
 ## [0.3.0] - 2021-02-22
 - release-it should not publish github release
@@ -29,3 +29,4 @@
 [0.0.2]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.0.2...v0.0.3
 [0.1.0]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.0.3...v0.1.0
 [0.3.0]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.2.0...v0.3.0
+[0.4.0]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.3.0...v0.4.0
