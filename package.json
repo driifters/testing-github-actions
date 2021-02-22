@@ -2,6 +2,9 @@
   "name": "@tokyodrift1993/testing-github-actions",
   "version": "0.0.0",
   "devDependencies": {
+    "@semabit/release-it-bump-keepachangelog": "^2.0.0",
+    "@semabit/release-it-bumper": "^2.0.0",
+    "@semabit/release-it-merge": "^1.0.0",
     "release-it": "^14.4.1"
   },
   "auto-changelog": {

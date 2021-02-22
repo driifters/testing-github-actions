@@ -1,4 +1,16 @@
 {
+  "plugins": {
+    "@semabit/release-it-bump-keepachangelog": {
+      "file": "CHANGELOG.md"
+    },
+    "@semabit/release-it-bumper": {
+      "in": "package.json",
+      "out": ".ci/package.json"
+    },
+    "@semabit/release-it-merge": {
+      "mergeMessage": "Release v${version} - $(date +\"%Y-%m-%d\")"
+    }
+  },
   "git": {
     "changelog": "awk \"/## \\[Unreleased\\]/ {flag=1;next} /## \\[/ {flag=0} flag {print}\" CHANGELOG.md",
     "tagName": "v${version}",
