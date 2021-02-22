@@ -9,7 +9,7 @@ jobs:
   lint_test_build_release:
     name: Lint, test, build and create release
     runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, "Version bump ")
+    if: startsWith(github.event.head_commit.message, 'Version bump ')
     steps:
       - name: Setup git user
         run: |
