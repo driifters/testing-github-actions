@@ -60,10 +60,8 @@ jobs:
           draft: false
           prerelease: true
 
-      - name: Commit release TAG
-        run: |
-          git commit -am "${{ steps.read_version.outputs.TAG }}"
-          git push
+      - name: Push commits
+        run: git push
 
 #      - name: Publish npm
 #        id: publish_npm
