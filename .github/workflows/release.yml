@@ -1,0 +1,61 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  lint_test_build_release:
+    name: Lint, test, build and create release
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.merged, "Version bump ")
+    steps:
+      - name: Setup git user
+        run: |
+          git config --global user.name "Github Actions CI"
+          git config --global user.email "github-actions-ci@tokyodrift1993.org"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Prepare release notes
+        id: release_notes
+        run: |
+          CHANGELOG=$(awk "/## \[Unreleased\]/ {flag=1;next} /## \[/ {flag=0} flag {print}" CHANGELOG.md)
+          CHANGELOG="${CHANGELOG//'%'/'%25'}"
+          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
+          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+          echo ::set-output name=RELEASE_NOTES::$CHANGELOG
+
+      - name: Create GitHub Release Notes
+        id: create_github_release_notes
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.read_version.outputs.TAG }}
+          release_name: Release ${{ steps.read_version.outputs.TAG }}
+          body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
+          draft: false
+          prerelease: true
+
+#      - name: Publish npm
+#        id: publish_npm
+#      - run: |
+#          cd ./dist
+#          yarn publish --tag next --new-version ${{ steps.read_version.outputs.VERSION }}
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
