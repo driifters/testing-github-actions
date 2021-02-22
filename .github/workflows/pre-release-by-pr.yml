@@ -1,4 +1,4 @@
-name: Create Pre-Release
+name: Create Pre-Release by PR
 
 on:
   pull_request:
