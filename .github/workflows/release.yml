@@ -34,8 +34,8 @@ jobs:
       - name: Read version
         id: read_version
         run: |
-          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-          echo "::set-output name=TAG::v${GITHUB_REF#refs/tags/}"
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/v}
+          echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
 
       - name: Prepare release notes
         id: release_notes

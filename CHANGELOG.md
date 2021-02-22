@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- fix double "v"
 
 ## [0.4.0] - 2021-02-22
 - fix
