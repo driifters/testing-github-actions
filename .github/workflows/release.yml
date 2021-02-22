@@ -31,6 +31,12 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Read version
+        id: read_version
+        run: |
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+          echo "::set-output name=TAG::v${GITHUB_REF#refs/tags/}"
+
       - name: Prepare release notes
         id: release_notes
         run: |
@@ -47,10 +53,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.read_version.outputs.TAG }}
-          release_name: Release ${{ steps.read_version.outputs.TAG }}
+          release_name: ${{ steps.read_version.outputs.TAG }}
           body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
-          draft: false
-          prerelease: true
 
 #      - name: Publish npm
 #        id: publish_npm
