@@ -71,6 +71,6 @@ jobs:
 #        id: publish_npm
 #      - run: |
 #          cd ./dist
-#          yarn publish --tag next --new-version ${{ steps.read_version.outputs.VERSION }}
+#          yarn publish --tag next
 #        env:
 #          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
