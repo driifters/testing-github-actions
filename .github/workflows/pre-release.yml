@@ -1,18 +1,15 @@
 name: Create Pre-Release
 
 on:
-  push:
-    tags:
-      - "v*.*.*-*"
   pull_request:
 
 jobs:
   lint_test_build_pre_release:
     name: Lint, test, build and create pre-release
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true || "startsWith(GITHUB_REF, 'refs/tags/v')"
+    if: github.event.pull_request.merged == true
     steps:
-      - name: Setup Git User
+      - name: Setup git user
         run: |
           git config --global user.email "github-actions-ci@tokyodrift1993.org"
           git config --global user.name "Github Actions CI"
@@ -32,17 +29,36 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Create Pre-Release
-        id: create_release
+      - name: Prepare version
+        run: yarn version --prerelease --cwd ./.ci
+
+      - name: Read version
+        id: read_version
+        run: echo ::set-output name=VERSION::$(yarn versions --json --cwd ./.ci | jq -r '.data."@tokyodrift1993/testing-github-actions"')
+
+      - name: Bump version
+        run: yarn version --new-version ${{ steps.read_version.outputs.VERSION }} -s --no-git-tag-version
+
+      - name: Prepare release notes
+        id: release_notes
+        run: echo ::set-output name=RELEASE_NOTES::$(awk "/## \[Unreleased\]/ {flag=1;next} /## \[/ {flag=0} flag {print}" CHANGELOG.md)
+
+      - name: Create GitHub Release Notes
+        id: create_github_release_notes
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+          body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
           draft: false
           prerelease: true
+
+#      - name: Publish npm
+#        id: publish_npm
+#      - run: |
+#          cd ./dist
+#          yarn publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
