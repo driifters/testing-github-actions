@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- fix empty release body
+
 ## [0.6.0] - 2021-02-22
 - something
 - fix empty release body
