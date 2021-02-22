@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- new change
+
 ## [0.0.2] - 2021-02-22
 - fix changelog and versions
 
