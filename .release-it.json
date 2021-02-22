@@ -16,7 +16,11 @@
     "tagName": "v${version}",
     "tagArgs": "-s"
   },
-  "github": false,
+  "github": {
+    "release": true,
+    "releaseName": "v${version}",
+    "tokenRef": "GITHUB_TOKEN_CLI_RELEASER"
+  },
   "npm": {
     "publish": false
   }
