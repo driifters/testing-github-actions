@@ -46,6 +46,8 @@ jobs:
 
       - name: Prepare release notes
         id: release_notes
+        env:
+          CHANGELOG_VERSION_HEADER: Unreleased
         run: |
           CHANGELOG=$(awk "/## \[$CHANGELOG_VERSION_HEADER\]/ {flag=1;next} /## \[/ {flag=0} flag {print}" CHANGELOG.md)
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
