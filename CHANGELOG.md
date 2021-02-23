@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 - fix unnecessary id
+- just for fun
 
 ## [0.7.0] - 2021-02-22
 - fix empty release body
