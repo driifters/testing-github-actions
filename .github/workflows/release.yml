@@ -48,8 +48,7 @@ jobs:
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
           echo ::set-output name=RELEASE_NOTES::$CHANGELOG
 
-      - name: Create GitHub Release Notes
-        id: create_github_release_notes
+      - name: Create github release notes
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,7 +58,6 @@ jobs:
           body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
 
 #      - name: Publish npm
-#        id: publish_npm
 #      - run: |
 #          cd ./dist
 #          yarn publish

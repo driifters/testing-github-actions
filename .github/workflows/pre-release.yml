@@ -47,13 +47,13 @@ jobs:
       - name: Prepare release notes
         id: release_notes
         run: |
-          CHANGELOG=$(awk "/## \[Unreleased\]/ {flag=1;next} /## \[/ {flag=0} flag {print}" CHANGELOG.md)
+          CHANGELOG=$(awk "/## \[$CHANGELOG_VERSION_HEADER\]/ {flag=1;next} /## \[/ {flag=0} flag {print}" CHANGELOG.md)
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
           echo ::set-output name=RELEASE_NOTES::$CHANGELOG
 
-      - name: Create GitHub Release Notes
+      - name: Create github release notes
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
