@@ -1,6 +1,9 @@
 {
   "name": "@tokyodrift1993/testing-github-actions",
   "version": "0.8.0",
+  "scripts": {
+    "release": "release-it --TODAY=$(date +\"%Y-%m-%d\")"
+  },
   "devDependencies": {
     "@semabit/release-it-bump-keepachangelog": "^2.0.0",
     "@semabit/release-it-bumper": "^2.0.0",
