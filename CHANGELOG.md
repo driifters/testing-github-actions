@@ -1,6 +1,9 @@
 # Changelog
 
-[Unreleased]
+## [Unreleased]
+- remove git tag annotation
+
+## [0.8.2] - 2021-02-24
 - remove auto-changelog config
 
 ## [0.8.1] - 2021-02-24
