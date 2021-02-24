@@ -1,5 +1,8 @@
 # Changelog
 
+[Unreleased]
+- remove auto-changelog config
+
 ## [0.8.1] - 2021-02-24
 - test git tag annotation
 
