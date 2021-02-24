@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- add git tag annotation back
+
 ## [0.8.3] - 2021-02-24
 - remove git tag annotation
 

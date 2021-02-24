@@ -14,7 +14,8 @@
   "git": {
     "changelog": "awk \"/## \\[Unreleased\\]/ {flag=1;next} /## \\[/ {flag=0} flag {print}\" CHANGELOG.md",
     "commitMessage": "Version bump (v${latestVersion} => v${version})",
-    "tagName": "v${version}"
+    "tagName": "v${version}",
+    "tagAnnotation": "Version v${version} - ${TODAY}"
   },
   "github": false,
   "npm": {
