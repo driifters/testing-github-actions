@@ -1,6 +1,6 @@
 {
   "name": "@tokyodrift1993/testing-github-actions",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "devDependencies": {
     "@semabit/release-it-bump-keepachangelog": "^2.0.0",
     "@semabit/release-it-bumper": "^2.0.0",
