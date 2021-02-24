@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.8.3] - 2021-02-24
 - remove git tag annotation
 
 ## [0.8.2] - 2021-02-24
@@ -59,3 +59,4 @@
 [0.7.0]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.6.0...v0.7.0
 [0.8.0]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.7.0...v0.8.0
 [0.8.1]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.8.0...v0.8.1
+[0.8.3]: https://github.com/tokyodrift1993/testing-github-actions/compare/v0.8.2...v0.8.3
