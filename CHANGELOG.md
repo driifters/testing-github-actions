@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- test git tag annotation
+
 ## [0.8.0] - 2021-02-23
 - fix unnecessary id
 - just for fun
