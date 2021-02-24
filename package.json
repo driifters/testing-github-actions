@@ -1,6 +1,6 @@
 {
   "name": "@tokyodrift1993/testing-github-actions",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "scripts": {
     "release": "release-it --TODAY=$(date +\"%Y-%m-%d\")"
   },
