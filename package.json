@@ -9,13 +9,5 @@
     "@semabit/release-it-bumper": "^2.0.0",
     "@semabit/release-it-merge": "^1.0.0",
     "release-it": "^14.4.1"
-  },
-  "auto-changelog": {
-    "output": "CHANGELOG.md",
-    "template": "keepachangelog",
-    "commitLimit": false,
-    "unreleased": true,
-    "ignoreCommitPattern": "(Release (v)?|Merge (remote-tracking )?branch)",
-    "sortCommits": "date"
   }
 }
