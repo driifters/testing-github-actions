@@ -57,9 +57,9 @@ jobs:
           release_name: ${{ steps.read_version.outputs.TAG }}
           body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
 
-#      - name: Publish npm
-#      - run: |
-#          cd ./dist
-#          yarn publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish npm
+        run: |
+          cd ./dist
+          yarn publish --tag latest --access public --non-interactive
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
