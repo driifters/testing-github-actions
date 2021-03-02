@@ -59,7 +59,7 @@ jobs:
         id: pre_release_tag_commit
         run: |
           git commit -am "${{ steps.read_version.outputs.TAG }}"
-          git push --follow-tags
+          git push
           echo ::set-output name=SHA::$(git rev-parse HEAD)
 
       - name: Create github release notes
