@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- update github action configs
+
 ## [0.9.0] - 2021-03-02
 - fix git tag on wrong commit
 
