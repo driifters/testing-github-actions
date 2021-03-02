@@ -56,9 +56,11 @@ jobs:
           echo ::set-output name=RELEASE_NOTES::$CHANGELOG
 
       - name: Push commits
+        id: pre_release_tag_commit
         run: |
           git commit -am "${{ steps.read_version.outputs.TAG }}"
           git push --follow-tags
+          echo ::set-output name=SHA::$(git rev-parse HEAD)
 
       - name: Create github release notes
         uses: actions/create-release@v1
@@ -69,6 +71,7 @@ jobs:
           release_name: ${{ steps.read_version.outputs.TAG }}
           body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
           prerelease: true
+          commitish: ${{ steps.pre_release_tag_commit.outputs.SHA }}
 
       - name: Publish npm
         run: |
