@@ -68,7 +68,7 @@ jobs:
       - name: Push commits
         run: |
           git commit -am "${{ steps.read_version.outputs.TAG }}"
-          git tag -a ${{ steps.read_version.outputs.VERSION }} -m "${{ steps.read_version.outputs.TAG }}"
+          git tag -a ${{ steps.read_version.outputs.TAG }} -m "${{ steps.read_version.outputs.TAG }}"
           git push --follow-tags
 
       - name: Publish npm
