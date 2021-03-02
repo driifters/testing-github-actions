@@ -55,6 +55,11 @@ jobs:
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
           echo ::set-output name=RELEASE_NOTES::$CHANGELOG
 
+      - name: Push commits
+        run: |
+          git commit -am "${{ steps.read_version.outputs.TAG }}"
+          git push --follow-tags
+
       - name: Create github release notes
         uses: actions/create-release@v1
         env:
@@ -64,12 +69,6 @@ jobs:
           release_name: ${{ steps.read_version.outputs.TAG }}
           body: ${{ steps.release_notes.outputs.RELEASE_NOTES }}
           prerelease: true
-
-      - name: Push commits
-        run: |
-          git commit -am "${{ steps.read_version.outputs.TAG }}"
-          git tag -a ${{ steps.read_version.outputs.VERSION }} -m "${{ steps.read_version.outputs.TAG }}"
-          git push --follow-tags
 
       - name: Publish npm
         run: |
