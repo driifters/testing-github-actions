@@ -5,7 +5,10 @@
     },
     "@semabit/release-it-bumper": {
       "in": "package.json",
-      "out": ".ci/package.json"
+      "out": [
+        ".ci/package.json",
+        ".dist/package.json"
+      ]
     },
     "@semabit/release-it-merge": {
       "mergeMessage": "Release v${version} - $(date +\"%Y-%m-%d\")"
