@@ -33,7 +33,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Bump version in CI directory
-        run: yarn version --prerelease --cwd ./.ci
+        run: yarn version --prerelease --cwd ./.ci --no-git-tag-version
 
       - name: Read version
         id: read_version
@@ -66,7 +66,10 @@ jobs:
           prerelease: true
 
       - name: Push commits
-        run: git push
+        run: |
+          git commit -am "${{ steps.read_version.outputs.TAG }}"
+          git tag -a ${{ steps.read_version.outputs.VERSION }} -m "${{ steps.read_version.outputs.TAG }}"
+          git push --follow-tags
 
       - name: Publish npm
         run: |
