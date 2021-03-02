@@ -1,5 +1,5 @@
 {
-  "name": "@tokyodrift1993/testing-github-actions",
+  "name": "@driifters/testing-github-actions",
   "version": "0.8.4",
   "scripts": {
     "release": "release-it --TODAY=$(date +\"%Y-%m-%d\")"
