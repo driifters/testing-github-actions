@@ -1,18 +1,13 @@
 {
-  "name": "@tokyodrift1993/testing-github-actions",
+  "name": "@driifters/testing-github-actions",
   "version": "0.8.4",
+  "scripts": {
+    "release": "release-it --TODAY=$(date +\"%Y-%m-%d\")"
+  },
   "devDependencies": {
     "@semabit/release-it-bump-keepachangelog": "^2.0.0",
     "@semabit/release-it-bumper": "^2.0.0",
     "@semabit/release-it-merge": "^1.0.0",
     "release-it": "^14.4.1"
-  },
-  "auto-changelog": {
-    "output": "CHANGELOG.md",
-    "template": "keepachangelog",
-    "commitLimit": false,
-    "unreleased": true,
-    "ignoreCommitPattern": "(Release (v)?|Merge (remote-tracking )?branch)",
-    "sortCommits": "date"
   }
 }
