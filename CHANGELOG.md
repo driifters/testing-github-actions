@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.9.0] - 2021-03-02
 - fix git tag on wrong commit
 
 ## [0.8.4] - 2021-02-24
@@ -67,3 +67,4 @@
 [0.8.1]: https://github.com/driifters/testing-github-actions/compare/v0.8.0...v0.8.1
 [0.8.3]: https://github.com/driifters/testing-github-actions/compare/v0.8.2...v0.8.3
 [0.8.4]: https://github.com/driifters/testing-github-actions/compare/v0.8.3...v0.8.4
+[0.9.0]: https://github.com/driifters/testing-github-actions/compare/v0.8.4...v0.9.0
