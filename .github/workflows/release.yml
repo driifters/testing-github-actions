@@ -26,7 +26,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: ${{ steps.nvm.outputs.NVMRC }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
