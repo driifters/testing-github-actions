@@ -69,7 +69,7 @@ jobs:
         run: git push
 
       - name: Publish npm
-      - run: |
+        run: |
           cd ./dist
           yarn publish --tag next --access public --non-interactive
         env:
