@@ -71,6 +71,6 @@ jobs:
       - name: Publish npm
       - run: |
           cd ./dist
-          yarn publish --tag next --non-interactive
+          yarn publish --tag next --access public --non-interactive
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
