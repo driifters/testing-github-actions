@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- fix git tag on wrong commit
+
 ## [0.8.4] - 2021-02-24
 - add git tag annotation back
 
